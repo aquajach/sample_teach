@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Lesson#4 – Introdction to Class in Swift</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h3 class="text-left">Class #4:</h3>
+					<h1 class="padding-bottom-80">Swift: <span class="red">Class</span></h1>
+					<p class="text-right">
+						<small>Created by <a href="http://github.com/aquajach">Jack Chen</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2 class="padding-bottom-80">Quick Warm-up</h2>
+					<section class="text-left code" data-transition="none">
+						<p>
+							var name: Int = "Taylor Swift"
+						</p>
+						<p>
+							var score: String = 1 + 3
+						</p>
+					</section>
+					<section class="text-left code" data-transition="none">
+						<p>
+							var name: <strike>Int</strike> <span class="red">String</span> = "Taylor Swift"
+						</p>
+						<p>
+							var score: <strike>String</strike> <span class="red">Int</span> = 1 + 3
+						</p>
+					</section>
+				</section>
+
+				<section>
+					<h2 class="padding-bottom-80">Quick Warm-up</h2>
+					<section class="text-left" data-transition="none">
+						<table>
+							<tr>
+								<td>[String]</td>
+								<td class="code-small">A. ["HKG": 28.0, "NYC": 21.5, "TKO": 20.8]</td>
+							</tr>
+							<tr>
+								<td>[Character: Int]</td>
+								<td class="code-small">B. ["frog", "whale", "snake"]</td>
+							</tr>
+							<tr>
+								<td>[String: Double]</td>
+								<td class="code-small">C. ["A": 55, "B": 56, "C": 57]</td>
+							</tr>
+						</table>
+					</section>
+					<section class="text-left" data-transition="none">
+						<table>
+							<tr>
+								<td>[String]</td>
+								<td class="code-small yellow">B. ["frog", "whale", "snake"]</td>
+							</tr>
+							<tr>
+								<td>[Character: Int]</td>
+								<td class="code-small yellow">C. ["A": 55, "B": 56, "C": 57]</td>
+							</tr>
+							<tr>
+								<td>[String: Double]</td>
+								<td class="code-small yellow">A. ["HKG": 28.0, "NYC": 21.5, "TKO": 20.8]</td>
+							</tr>
+						</table>
+					</section>
+					<section class="text-left red" data-transition="none">
+						<table>
+							<tr>
+								<td>[String]</td>
+								<td>String</td>
+								<td>Float</td>
+							</tr>
+							<tr>
+								<td>[Character: Int]</td>
+								<td>Int</td>
+								<td>Character</td>
+							</tr>
+							<tr>
+								<td>[String: Double]</td>
+								<td>Double</td>
+								<td>......</td>
+							</tr>
+						</table>
+					</section>
+				</section>
+
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<i class="fa fa-file-text-o left padding-right-80" style="font-size: 500px"></i>
+						<p class="text-left"> - Material</p>
+						<p class="text-left"> - Shape</p>
+						<p class="text-left"> - Text Content</p>
+						<p class="text-left"> - Read</p>
+						<p class="text-left"> - Write</p>
+						<p class="text-left"> - Send</p>
+						<p class="text-left"> - ...</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Class</h2>
+					<blockquote class="text-left fragment" style="font-size: 30px">
+						Definitions for the data format and available procedures for a given type or class of object; may also contain data and procedures (known as class methods) themselves
+					</blockquote>
+				</section>
+
+				<section>
+					<h2>Example</h2>
+					<section data-transition="none">
+						<pre class="text-center, code-small">
+	class <span class="red">Kid</span> {
+
+
+
+
+
+
+	}
+						</pre>
+					</section>
+					<section data-transition="none">
+						<pre class="text-center, code-small">
+	class <span class="red">Kid</span> {
+
+	  var <span class="yellow">age</span>: <span class="blue">Int!</span>
+
+
+
+
+	}
+						</pre>
+					</section>
+					<section data-transition="none">
+						<pre class="text-center, code-small">
+	class <span class="red">Kid</span> {
+
+	  var <span class="yellow">age</span>: <span class="blue">Int!</span>
+
+	  func <span class="yellow">cry()</span> {
+	    print("Wahhhh!")
+	  }
+	}
+						</pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Usage</h2>
+					<pre class="text-center, code-small">
+class <span class="red">Kid</span> {
+
+  var <span class="yellow">age</span>: <span class="blue">Int!</span>
+
+  func <span class="yellow">cry()</span> {
+    print("Wahhhh!")
+  }
+}
+
+/////////
+
+let myLittleKid = <span class="red">Kid()</span>
+myLittleKid.<span class="yellow">age</span> = 4
+myLittleKid.<span class="yellow">cry()</span> // Wahhhh!
+					</pre>
+				</section>
+
+				<section>
+					<h2>Practice in Playground</h2>
+				</section>
+
+				<section>
+					<h2>Your Time</h2>
+					<i class="fa fa-mobile" style="font-size: 500px"></i>
+				</section>
+
+				<section>
+					<h2>Quick Summary of Class</h2>
+					<section data-transition="none">
+						<blockquote class="text-left" style="font-size: 30px">
+							Definitions for the <span class="red">data format</span> and <span class="red">available procedures</span> for a given type or class of object; may also contain data and procedures (known as class methods) themselves
+						</blockquote>
+					</section>
+					<section data-transition="none">
+						<blockquote class="text-left" style="font-size: 30px">
+							Definitions for the <span class="red">data format</span> and <span class="red">available procedures</span> for a given type or class of object; <u>may also contain data and procedures (known as class methods) themselves</u>
+						</blockquote>
+					</section>
+				</section>
+
+				<section>
+					<h2>Initialization of Class</h2>
+					<pre class="text-center code-small fragment">
+						let kid = <span class="red">Kid()</span>
+							vs
+						let kid = <span class="red">Kid</span>.init()
+					</pre>
+				</section>
+				<section>
+					<h2>Initialization of Class</h2>
+					<pre class="text-center, code-small">
+class <span class="red">Kid</span> {
+
+  var <span class="yellow">age</span>: <span class="blue">Int!</span>
+  <div style="border: 1px solid !important;"><span class="yellow">init()</span> {
+    print("A kid is initialized!")
+    <span class="red">self</span>.<span class="yellow">age</span> = 5
+  }</div>
+  func <span class="yellow">cry()</span> {
+    print("Wahhhh!")
+  }
+}
+////////
+let myLittleKid = <span class="red">Kid()</span>
+print(myLittleKid.<span class="yellow">age</span>) // 5
+</pre>
+				</section>
+
+				<section>
+					<h2>Playground Time</h2>
+				</section>
+
+				<section>
+					<h2>Add your initializers</h2>
+					<i class="fa fa-mobile" style="font-size: 500px"></i>
+				</section>
+
+				<section>
+					<h2>Class Initialization</h2>
+					<section data-transition="none">
+						<blockquote class="text-left" style="font-size: 30px">
+							This process involves <span class="red">setting an initial value</span> for each stored property on that instance and performing any other setup or initialization that is <span class="red">required</span> before the new instance is ready for use.
+						</blockquote>
+					</section>
+					<section data-transition="none">
+						<blockquote class="text-left" style="font-size: 30px">
+							This process involves <span class="red">setting an initial value</span> for <u>each</u> stored property on that instance and performing any other setup or initialization that is <span class="red">required</span> before the new instance is ready for use.
+						</blockquote>
+					</section>
+				</section>
+
+				<section>
+					<h2>The assignment:</h2>
+					<p class="text-left">
+						Define a Car class. A car will at least have brand name, maximum speed and coordinate (x, y). You will need to create three instances of Car with different brand names and maximum speed, but the same coordinate (0,0). Then enable all the cars to move by a certain distance vector (x,y). For example, a car at (3,4) will move to (2,5) by (-1,1). Please make sure cars are able to move multiple times.
+					</p>
+				</section>
+			</div>
+		</div>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
